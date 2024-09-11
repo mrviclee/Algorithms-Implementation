@@ -10,22 +10,15 @@ void merge(std::vector<int>& arr, unsigned int left, unsigned int mid, unsigned 
     std::vector<int> rightHalf(rightHalfLength);
 
     // copy the value from the original vector into the left half and right half
-    std::cout << "merge| left: ";
     for (int idx = left; idx <= mid; idx++)
     {
         leftHalf[idx - left] = arr[idx];
-        std::cout << leftHalf[idx - left] << " ";
     }
-    std::cout << std::endl;
 
-    std::cout << "merge| right: ";
     for (int idx = mid + 1; idx <= right; idx++)
     {
         rightHalf[idx - mid - 1] = arr[idx];
-        std::cout << rightHalf[idx - mid - 1] << " ";
     }
-    std::cout << std::endl;
-
 
     int leftIdx = 0;
     int rightIdx = 0;
@@ -50,8 +43,6 @@ void merge(std::vector<int>& arr, unsigned int left, unsigned int mid, unsigned 
     }
 
     // copy the rest of the either vectors to the original vector if there's left over
-    std::cout << "leftover: " << leftIdx << " rightover: " << rightIdx << std::endl;
-    std::cout << "left len: " << leftHalfLength << " right len: " << rightHalfLength << std::endl;
     while (leftIdx < leftHalfLength)
     {
         arr[originalArrIdx] = leftHalf[leftIdx];
@@ -65,13 +56,6 @@ void merge(std::vector<int>& arr, unsigned int left, unsigned int mid, unsigned 
         rightIdx++;
         originalArrIdx++;
     }
-
-    std::cout << "merge| original: ";
-    for (int i = left; i <= right; i++)
-    {
-        std::cout << arr[i] << " ";
-    }
-    std::cout << std::endl;
 }
 
 
@@ -82,7 +66,6 @@ void mergeSort(std::vector<int>& arr, unsigned int leftIdx, unsigned int rightId
     {
         // find the middle of the array
         unsigned int midIdx = (leftIdx + rightIdx) / 2;
-        std::cout << "mergeSort| left: " << leftIdx << " mid: " << midIdx << " right: " << rightIdx << std::endl;
 
         // keep splitting the left half and right half
         mergeSort(arr, leftIdx, midIdx);
